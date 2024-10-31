@@ -13,15 +13,4 @@ public class ApiGatewayApplication {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
 
-    @Bean
-    public RouteLocator routes(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route("auth", r -> r.path("/auth/**")
-                        .uri("http://localhost:8081"))
-                .route("portfolio", r -> r.path("/portfolio/**")
-                        .uri("http://localhost:8082"))
-                .route("file", r -> r.path("/file/**")
-                        .uri("http://localhost:8083"))
-                .build();
-    }
 }

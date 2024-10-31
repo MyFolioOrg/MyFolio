@@ -14,6 +14,7 @@
         <module>authentication</module>
         <module>file-upload</module>
         <module>portfolio</module>
+        <module>common</module>
     </modules>
 
     <properties>
