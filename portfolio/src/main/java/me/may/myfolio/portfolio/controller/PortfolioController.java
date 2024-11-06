@@ -29,8 +29,8 @@ public class PortfolioController {
         return ResponseEntity.ok("pong!");
     }
 
-    @PostMapping("/createTest")
-    public ResponseEntity<Portfolio> createTest() {
+    @PostMapping()
+    public ResponseEntity<Portfolio> createPortfolio() {
         Portfolio portfolio = new Portfolio();
         portfolio.setOwnerId(1);
         portfolio.setTitle("Test Portfolio");
