@@ -14,9 +14,9 @@ import java.util.Set;
 @Table(name = "portfolio")
 public class Portfolio {
     @Id
-    public long id;
-    public String title;
-    public Set<Category> categories;
-    public long ownerId;
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "portfolio_id_seq")
+    private Long id;
+    private String title;
+    private Set<Category> categories;
+    private Long ownerId;
 }

@@ -1,10 +1,9 @@
 package me.may.myfolio.fileupload.controller;
 
-import me.may.myfolio.fileupload.service.FileService;
+import me.may.myfolio.fileupload.service.impl.FileServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
 import java.util.Optional;
@@ -14,8 +13,8 @@ import java.util.Optional;
 @RequestMapping("api/file")
 public class FileController {
 
-    private final FileService service;
-    public FileController(FileService service) {
+    private final FileServiceImpl service;
+    public FileController(FileServiceImpl service) {
         this.service = service;
     }
 
