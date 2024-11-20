@@ -13,16 +13,18 @@ import java.util.Optional;
 @Component
 public class PortfolioCreationEventHandler extends EventHandler<PortfolioCreationEvent> {
     private final FileService fileService;
-    public PortfolioCreationEventHandler(FileServiceImpl fileService) {
+    public PortfolioCreationEventHandler(FileService fileService) {
         this.fileService = fileService;
     }
 
- @Override
+    @Override
     @RabbitListener(queues = "portfolio-file-uploads")
     public void receive(String eventJson) {
         Optional<PortfolioCreationEvent> optionalEvent = (Optional<PortfolioCreationEvent>) Event.fromJson(eventJson, PortfolioCreationEvent.class);
         optionalEvent.ifPresent(e -> {
             fileService.upload(e.content(), e.id() + ".md");
         });
+        if (optionalEvent.isEmpty())
+            System.out.println("ERR: Failed to parse incoming message.");
     }
 }
