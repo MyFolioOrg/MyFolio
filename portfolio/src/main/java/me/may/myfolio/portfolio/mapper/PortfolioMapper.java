@@ -9,9 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class PortfolioMapper implements Mapper<Portfolio, PortfolioDTO> {
     private final ModelMapper modelMapper;
+
     public PortfolioMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
+
     @Override
     public PortfolioDTO mapTo(Portfolio portfolio) {
         return modelMapper.map(portfolio, PortfolioDTO.class);

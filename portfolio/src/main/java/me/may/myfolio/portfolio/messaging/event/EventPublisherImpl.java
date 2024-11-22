@@ -12,6 +12,7 @@ import java.util.concurrent.TimeoutException;
 public class EventPublisherImpl<T extends Event> implements EventPublisher<T> {
     private static final String ROUTING_KEY = "create.portfolio";
     private final RabbitTemplate template;
+
     public EventPublisherImpl(RabbitTemplate template) {
         this.template = template;
     }

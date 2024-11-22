@@ -3,7 +3,10 @@ package me.may.myfolio.fileupload.controller;
 import me.may.myfolio.fileupload.service.impl.FileServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.Optional;
@@ -14,6 +17,7 @@ import java.util.Optional;
 public class FileController {
 
     private final FileServiceImpl service;
+
     public FileController(FileServiceImpl service) {
         this.service = service;
     }

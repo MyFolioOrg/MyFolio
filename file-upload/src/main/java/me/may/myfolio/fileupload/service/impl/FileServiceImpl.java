@@ -20,6 +20,7 @@ public class FileServiceImpl implements FileService {
     private static final Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
     private final String gcsBucketName;
     private final Storage storage;
+
     public FileServiceImpl(Storage storage, @Value("${gcs.resource.bucket}") String gcsBucketName) {
         this.gcsBucketName = gcsBucketName;
         this.storage = storage;
