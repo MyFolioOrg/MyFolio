@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.Optional;
 
 @Service
-@Profile("local")
+@Profile({"local", "test"})
 public class LocalFileService implements FileService {
     private static final String BASE_PATH = "jmeter/locally_uploaded/";
     @Override
