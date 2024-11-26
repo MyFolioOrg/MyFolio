@@ -13,7 +13,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest(classes = EventHandlingTests.class)
-@ActiveProfiles("prod")
+@ActiveProfiles("test")
 public class EventHandlingTests {
     @InjectMocks
     private PortfolioCreationEventHandler portfolioCreationEventHandler;
