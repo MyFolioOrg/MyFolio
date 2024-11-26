@@ -6,6 +6,7 @@ import me.may.myfolio.fileupload.service.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.WritableResource;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,13 @@ import java.net.URI;
 import java.util.Optional;
 
 @Service
-public class FileServiceImpl implements FileService {
-    private static final Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
+@Profile("prod")
+public class GoogleFileStorageService implements FileService {
+    private static final Logger logger = LoggerFactory.getLogger(GoogleFileStorageService.class);
     private final String gcsBucketName;
     private final Storage storage;
 
-    public FileServiceImpl(Storage storage, @Value("${gcs.resource.bucket}") String gcsBucketName) {
+    public GoogleFileStorageService(Storage storage, @Value("${gcs.resource.bucket}") String gcsBucketName) {
         this.gcsBucketName = gcsBucketName;
         this.storage = storage;
     }
