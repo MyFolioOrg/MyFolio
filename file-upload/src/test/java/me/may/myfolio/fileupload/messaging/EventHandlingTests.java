@@ -12,7 +12,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@SpringBootTest
+@SpringBootTest(classes = EventHandlingTests.class)
 @ActiveProfiles("test")
 public class EventHandlingTests {
     @InjectMocks

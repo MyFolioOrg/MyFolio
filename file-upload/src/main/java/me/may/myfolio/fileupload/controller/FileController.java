@@ -1,6 +1,7 @@
 package me.may.myfolio.fileupload.controller;
 
-import me.may.myfolio.fileupload.service.impl.FileServiceImpl;
+import me.may.myfolio.fileupload.service.FileService;
+import me.may.myfolio.fileupload.service.impl.GoogleFileStorageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +17,9 @@ import java.util.Optional;
 @RequestMapping("api/file")
 public class FileController {
 
-    private final FileServiceImpl service;
+    private final FileService service;
 
-    public FileController(FileServiceImpl service) {
+    public FileController(FileService service) {
         this.service = service;
     }
 
