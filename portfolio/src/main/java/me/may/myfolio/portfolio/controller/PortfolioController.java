@@ -3,6 +3,7 @@ package me.may.myfolio.portfolio.controller;
 import me.may.myfolio.portfolio.domain.dto.PortfolioDTO;
 import me.may.myfolio.portfolio.domain.entity.Portfolio;
 import me.may.myfolio.portfolio.mapper.PortfolioMapper;
+import me.may.myfolio.portfolio.service.PortfolioService;
 import me.may.myfolio.portfolio.service.impl.PortfolioServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/portfolio")
 public class PortfolioController {
 
-    private final PortfolioServiceImpl service;
+    private final PortfolioService service;
     private final PortfolioMapper mapper;
 
-    public PortfolioController(PortfolioServiceImpl service, PortfolioMapper mapper) {
+    public PortfolioController(PortfolioService service, PortfolioMapper mapper) {
         this.mapper = mapper;
         this.service = service;
     }

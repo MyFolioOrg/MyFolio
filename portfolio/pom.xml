@@ -62,8 +62,8 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>2.2.224</version> <!-- Check for the latest version -->
-            <scope>test</scope> <!-- This ensures it's only included in the test scope -->
+            <version>2.2.224</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

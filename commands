@@ -1,0 +1,9 @@
+kubectl delete service portfolio
+docker build --no-cache --build-arg BUILD_DATE=$(date +%s) -t portfolio:latest ./portfolio
+kubectl apply -f portfolio/kubernetes-deployment.yml
+minikube service portfolio
+
+#jmeter
+cd /usr/local/opt/jmeter/bin
+chmod +x jmeter
+./jmeter -n -t "/Users/May/Projects/-School/MyFolio/jmeter/testplans/load_test_create_portfolio.jmx" -l "/Users/May/Projects/-School/MyFolio/jmeter/results/result_k8s.csv"

@@ -5,6 +5,7 @@ import me.may.myfolio.portfolio.domain.entity.Portfolio;
 import me.may.myfolio.portfolio.messaging.event.EventPublisherImpl;
 import me.may.myfolio.portfolio.repo.PortfolioRepository;
 import me.may.myfolio.portfolio.service.PortfolioService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
