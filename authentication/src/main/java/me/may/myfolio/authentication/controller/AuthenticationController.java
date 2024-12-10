@@ -1,6 +1,7 @@
 package me.may.myfolio.authentication.controller;
 
-import me.may.myfolio.authentication.domain.dto.RegisterCredentials;
+import me.may.myfolio.authentication.domain.dto.AuthenticationResult;
+import me.may.myfolio.authentication.domain.dto.Credentials;
 import me.may.myfolio.authentication.service.AuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +20,15 @@ public class AuthenticationController {
         this.authService = authService;
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResult> login(@RequestBody Credentials credentials) {
+        AuthenticationResult jwt = authService.login(credentials.email, credentials.password);
+        return ResponseEntity.ok(jwt);
+    }
+
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterCredentials credentials) {
-        String jwt = authService.register(credentials.email, credentials.password);
+    public ResponseEntity<AuthenticationResult> register(@RequestBody Credentials credentials) {
+        AuthenticationResult jwt = authService.register(credentials.email, credentials.password);
         return ResponseEntity.ok(jwt);
     }
 }

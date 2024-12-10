@@ -1,6 +1,6 @@
 package me.may.myfolio.authentication.domain.dto;
 
-public class RegisterCredentials {
+public class Credentials {
     public String email;
     public String password;
 }
