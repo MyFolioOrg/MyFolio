@@ -22,11 +22,6 @@ public class PortfolioController {
         this.service = service;
     }
 
-    @GetMapping("/ping")
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("pong!");
-    }
-
     @PostMapping()
     public ResponseEntity<Portfolio> createPortfolio(@RequestBody PortfolioDTO portfolioDto) {
         Portfolio portfolio = mapper.mapFrom(portfolioDto);

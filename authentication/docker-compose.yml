@@ -1,11 +1,11 @@
 services:
   postgres:
     image: postgres:16
-    container_name: myfolio-portfolio
+    container_name: myfolio-auth
     restart: always
     environment:
       POSTGRES_USER: ${DATASOURCE_USERNAME}
       POSTGRES_PASSWORD: ${DATASOURCE_PASSWORD}
-      POSTGRES_DB: portfolio
+      POSTGRES_DB: auth
     ports:
-      - "5432:5432"
+      - "5433:5432"

@@ -7,8 +7,8 @@ import java.util.concurrent.TimeoutException;
 
 public interface EventPublisher<T extends Event> {
     default void publish(T event) throws IOException, TimeoutException {
-        doPublish(event.toJson());
+        publish(event.toJson());
     }
 
-    void doPublish(String eventJson) throws IOException, TimeoutException;
+    void publish(String eventJson) throws IOException, TimeoutException;
 }
