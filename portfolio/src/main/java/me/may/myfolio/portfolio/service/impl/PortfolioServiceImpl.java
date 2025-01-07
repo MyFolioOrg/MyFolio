@@ -5,6 +5,8 @@ import me.may.myfolio.portfolio.domain.entity.Portfolio;
 import me.may.myfolio.portfolio.messaging.event.PortfolioEventPublisher;
 import me.may.myfolio.portfolio.repo.PortfolioRepository;
 import me.may.myfolio.portfolio.service.PortfolioService;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class PortfolioServiceImpl implements PortfolioService {
     }
 
     @Override
+    @CachePut(value = "portfolios", key = "#portfolio.id")
     public Portfolio create(Portfolio portfolio, String content) {
         Portfolio saved = repo.save(portfolio);
         try {
@@ -30,5 +33,11 @@ public class PortfolioServiceImpl implements PortfolioService {
             throw new RuntimeException(e);
         }
         return saved;
+    }
+
+    @Override
+    @Cacheable(value = "portfolios", key = "#id")
+    public Portfolio get(long id) {
+        return repo.findById(id).orElse(null);
     }
 }

@@ -30,4 +30,10 @@ public class PortfolioController {
         Portfolio created = service.create(portfolio, portfolioDto.getContent());
         return ResponseEntity.ok(created);
     }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Portfolio> getPortfolio(@PathVariable long id) {
+        Portfolio portfolio = service.get(id);
+        return portfolio == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(portfolio);
+    }
 }

@@ -5,4 +5,5 @@ import me.may.myfolio.portfolio.domain.entity.Portfolio;
 
 public interface PortfolioService {
     Portfolio create(Portfolio portfolio, String content);
+    Portfolio get(long id);
 }
