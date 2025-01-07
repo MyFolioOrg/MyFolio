@@ -2,7 +2,7 @@ package me.may.myfolio.portfolio.service.impl;
 
 import me.may.myfolio.common.messaging.event.PortfolioCreationEvent;
 import me.may.myfolio.portfolio.domain.entity.Portfolio;
-import me.may.myfolio.portfolio.messaging.event.EventPublisherImpl;
+import me.may.myfolio.portfolio.messaging.event.PortfolioEventPublisher;
 import me.may.myfolio.portfolio.repo.PortfolioRepository;
 import me.may.myfolio.portfolio.service.PortfolioService;
 import org.springframework.stereotype.Service;
@@ -13,9 +13,9 @@ import java.util.concurrent.TimeoutException;
 @Service
 public class PortfolioServiceImpl implements PortfolioService {
     private final PortfolioRepository repo;
-    private final EventPublisherImpl<PortfolioCreationEvent> publisher;
+    private final PortfolioEventPublisher publisher;
 
-    public PortfolioServiceImpl(PortfolioRepository repo, EventPublisherImpl<PortfolioCreationEvent> publisher) {
+    public PortfolioServiceImpl(PortfolioRepository repo, PortfolioEventPublisher publisher) {
         this.repo = repo;
         this.publisher = publisher;
     }

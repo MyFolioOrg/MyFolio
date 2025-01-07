@@ -4,6 +4,9 @@ import me.may.myfolio.authentication.domain.dto.AuthenticationResult;
 import me.may.myfolio.authentication.domain.entity.User;
 import me.may.myfolio.common.security.jwt.AbstractJwtService;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 public interface AuthenticationService {
     AuthenticationResult login(String email, String password);
     AuthenticationResult register(String email, String password);
