@@ -29,14 +29,12 @@ public class GoogleFileStorageService implements FileService {
     }
 
     public Optional<URI> upload(String data, String filename) {
-        logger.info("Uploading file: {}", filename);
         try {
             Resource resource = fetchResource(filename);
             updateResource(resource, data);
-            logger.info("File uploaded at {}", resource.getURI());
             return Optional.of(resource.getURI());
         } catch (IOException e) {
-            logger.error("Failed to upload file: {}", filename, e);
+            logger.error("Failed to upload file to GCS.");
             return Optional.empty();
         }
     }
